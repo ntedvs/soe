@@ -8,11 +8,13 @@ fn main() {
     };
 
     let limit = limit.parse().unwrap();
+    let end = (limit as f64).sqrt() as usize + 1;
+
     let mut basket = vec![true; limit];
 
-    for number in 2..limit {
+    for number in 2..end {
         if basket[number] {
-            let mut multiple = number * 2;
+            let mut multiple = number * number;
 
             while multiple < limit {
                 basket[multiple] = false;
